@@ -1,0 +1,21 @@
+{
+  "name": "restauarant_challenge_backend",
+  "version": "1.0.0",
+  "description": "a restaurant app which allows owners to input the number of available tables and chairs to make it easy for customers to input the number of headout in order to get the available tables and chairs",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "dev": "nodemon server/index.js",
+    "serve": "nodemon server/index.js"
+  },
+  "author": "Yasira Musah",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.1",
+    "helmet": "^6.0.0",
+    "mongoose": "^6.6.5",
+    "morgan": "^1.10.0"
+  }
+}
