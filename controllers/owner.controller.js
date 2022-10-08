@@ -2,7 +2,7 @@ const saveOwnerData = async (req, res) => {
 
     try {
         
-        const {ownerName}
+        // const {ownerName}
     } catch (error) {
         console.log(error);
     }
