@@ -4,7 +4,7 @@
   "description": "a restaurant app which allows owners to input the number of available tables and chairs to make it easy for customers to input the number of headout in order to get the available tables and chairs",
   "main": "server/index.js",
   "scripts": {
-    "start": "nodemon server/index.js",
+    "start": "node server/index.js",
     "dev": "nodemon server/index.js",
     "serve": "nodemon server/index.js"
   },
