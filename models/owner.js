@@ -6,14 +6,13 @@ const ownerSchema = new Schema({
 
     numberOfTable: {
         type: Number,
-        // required: true
+        required: true
     },
-    name:{type:String},
 
-    numberOfChair: {
+    chairPerTable: {
         type: Number,
-        // required:true,
-        // max:4
+        required:true,
+        max:4
     }
 
 },
@@ -22,6 +21,4 @@ const ownerSchema = new Schema({
     }
 );
 
-const Owner = mongoose.model('Owner', ownerSchema);
-
-module.exports = { Owner }
+exports.Owner = mongoose.model('Owner', ownerSchema);

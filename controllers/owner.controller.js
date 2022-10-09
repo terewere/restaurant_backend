@@ -1,25 +1,30 @@
 const { Owner } = require("../models/owner");
 
-const saveOwnerData = async (req, res) => {
+exports.saveOwnerData = async (req, res) => {
 
     try {
+        const { numberOfTable, chairPerTable } = req.body;
+                
+        const dataStore = new Owner({ numberOfTable, chairPerTable });
         
-        const { numberOfTable, numberOfChair, name } = req.body;
-        
-        const data = { numberOfTable, numberOfChair, name }
-        const dataStore = new Owner(data);
-        
-        // saving of todo data
         const saveData = await dataStore.save();
-        console.log(saveData, 'newLogisticsData')
 
-        // console.log(saveLogisticsData,'saveLogisticsData')
-        // if (!saveLogisticsData) return res.status(401).json("something went wrong, data has not been saved");
-        // return res.status(201).json(saveLogisticsData)
+        console.log(saveData, 'bb');
+
+        saveData ? res.status(201).json(saveData) :  res.status(401).json("something went wrong, data has not been saved");
+
     } catch (error) {
+
         console.log(error.message);
-        // res.status(501).json(error)
+
+        res.status(501).json(error)
+
     }
+
 }
 
-module.exports = { saveOwnerData };
+// exports.getOwnerInfo = async (req, res) => {
+
+//     const getData = await Owner.find();
+//     console.log(getData);
+// }

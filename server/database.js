@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 require("dotenv").config();
 
-const dbConnection = () => {
+exports.dbConnection = () => {
     
     const { env } = process;
 
@@ -22,6 +22,4 @@ const dbConnection = () => {
         
     })
     .catch(err => console.log(err.message));
-};
-
-module.exports = { dbConnection };
+}
