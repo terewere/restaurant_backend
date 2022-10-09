@@ -1,0 +1,9 @@
+Post http://localhost:5000/save
+
+Content-Type: application/json;
+
+{
+
+  "name": "jj"
+
+}

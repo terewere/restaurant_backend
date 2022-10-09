@@ -4,20 +4,18 @@ const { Schema } = mongoose;
 
 const ownerSchema = new Schema({
 
-    ownerName: {
-        type: String,
-        required: true
-    },
-
-    numberOfTables: {
+    numberOfTable: {
         type: Number,
-        required: true
+        // required: true
     },
+    name:{type:String},
 
-    numberOfChairs: {
+    numberOfChair: {
         type: Number,
-        required: true
+        // required:true,
+        // max:4
     }
+
 },
     {
         timestamps: true
@@ -26,4 +24,4 @@ const ownerSchema = new Schema({
 
 const Owner = mongoose.model('Owner', ownerSchema);
 
-module.exports = {Owner}
+module.exports = { Owner }
