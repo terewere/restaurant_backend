@@ -1,11 +1,12 @@
 const express = require("express");
 
-const { saveOwnerData, getOwnerInfo } = require("../controllers/owner.controller");
+const { ownerData } = require("../controllers/owner.controller");
+const { customerData } = require("../controllers/customer.controller");
 
 const Router = express.Router();
 
-Router.post("/save", saveOwnerData);
+Router.post("/owner/save", ownerData);
 
-// Router.get("/getData", getOwnerInfo)
+Router.post("/customer/save", customerData)
 
 module.exports = { Router };

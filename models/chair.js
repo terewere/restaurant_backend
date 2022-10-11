@@ -2,28 +2,25 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const tableSchema = new Schema({
+const chairSchema = new Schema({
 
     label: {
         type: String,
         required: true,
-        unique:true
-    },
+     },
 
     available: {
         type: Boolean,
         required: true,
         default:true
     },
-    chairs: [{
+    table: {
         type: Schema.Types.ObjectId,
-        ref: "Chair"
-    }]
+        ref: "Table"
+    }
 
-},
 
+}
 );
 
-exports.Table = mongoose.model('Table', tableSchema);
-
-
+exports.Chair = mongoose.model('Chair', chairSchema);

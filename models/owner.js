@@ -11,14 +11,10 @@ const ownerSchema = new Schema({
 
     chairPerTable: {
         type: Number,
-        required:true,
-        max:4
+        required:true
     }
 
-},
-    {
-        timestamps: true
-    }
+}
 );
 
 exports.Owner = mongoose.model('Owner', ownerSchema);

@@ -1,18 +1,23 @@
 const { Owner } = require("../models/owner");
+const { Table } = require("../models/table");
+const {generateTableNumber} = require("../helper/generateTableNumber")
 
-exports.saveOwnerData = async (req, res) => {
+exports.ownerData = async (req, res) => {
 
     try {
+
         const { numberOfTable, chairPerTable } = req.body;
-                
+
         const dataStore = new Owner({ numberOfTable, chairPerTable });
         
-        const saveData = await dataStore.save();
+        await dataStore.save();
 
-        console.log(saveData, 'bb');
+        await generateTableNumber(numberOfTable, chairPerTable);
+   
+      const data = await Table.find({}).populate("chairs")
 
-        saveData ? res.status(201).json(saveData) :  res.status(401).json("something went wrong, data has not been saved");
-
+      res.json(data)
+        
     } catch (error) {
 
         console.log(error.message);
@@ -20,11 +25,4 @@ exports.saveOwnerData = async (req, res) => {
         res.status(501).json(error)
 
     }
-
 }
-
-// exports.getOwnerInfo = async (req, res) => {
-
-//     const getData = await Owner.find();
-//     console.log(getData);
-// }
